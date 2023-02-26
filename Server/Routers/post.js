@@ -7,12 +7,13 @@ import {
 } from "../Controler/post.js";
 import { protection } from "../Middleware/protector.js";
 
-const router = express.Router();
+const postrouter = express.Router();
 //get
-router.get("/", protection, getFeedPosts);
+postrouter.get("/getpost", protection, getFeedPosts);
 
-router.get("/:userId/posts", protection, getFeedPosts);
+postrouter.get("/:userId/posts", protection, getFeedPosts);
+
 //update
-router.patch("/:id/like", protection, likedPosts);
+postrouter.patch("/:id/like", protection, likedPosts);
 
-export default router;
+export default postrouter;

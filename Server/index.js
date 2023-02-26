@@ -16,6 +16,7 @@ import router from "./Routers/post.js";
 import { users, posts } from "./Data/data.js";
 import UserModel from "./Model/user.js";
 import PostModel from "./Model/post.js";
+import postrouter from "./Routers/post.js";
 
 const port = process.env.PORT || 5000;
 //configuration
@@ -46,7 +47,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.use("/api/v1", userRouter);
-app.use("/api/v1", router);
+app.use("/api/v1", postrouter);
 app.post("/api/v1/register", upload.single("picture"), register);
 
 //port running
